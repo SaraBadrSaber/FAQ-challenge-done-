@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link href="https://fonts.google.com/specimen/Work+Sans">
+  <title>Frontend Mentor | FAQ accordion</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+   @font-face {
+      font-family: font ;
+      src: url(./assets/fonts/static/WorkSans-Bold.ttf);
+    }
+
+
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background: hsl(275, 100%, 97%);
+    }
+    .all{
+     margin: 0;
+     
+    }
+    .bkimgpurple{
+      height: 250px ;
+      width: 1440px;
+      object-fit: cover;
+    }
+    
+    .maindiv{
+      width: 550px;
+      border: none;
+      padding: 25px;
+      border-radius: 10px;
+      position: relative; 
+      z-index: 1;
+      margin: -130px 250px;
+      background: hsl(0, 0%, 100%);
+      box-shadow: 0px 0px 35px #80808024;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+    }
+    h1{
+      font-weight: 700;    
+      font-family: font;
+      font-size: 55px;
+    }
+    h2{
+      font: weight 600px;;
+      font-size: 15px;
+      font-family: font;
+      padding-top: 10px;
+    }
+    p{
+      font-size: 16px;
+      color: hsl(300, 2%, 56%);
+      padding-top: 10px;
+    }
+   /*class of para */
+    .hidden{
+    visibility: hidden;
+    height: 0px;
+    }
+    /*the line in between*/
+    hr{
+      border-top: 1px solid #80808024; 
+      margin: 20px 0;
+      width: 450px;
+      margin-left: 25px;
+    }
+ 
+/*button css*/
+
+   .plus-minus-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  background: hsl(292, 16%, 49%);
+  border: none;
+  display: block; /* Display the button as an inline-flex element */
+  position: relative;
+  margin-top: -20px; 
+  margin-left: 450px;
+  /* Add some space between the button and the text */
+
+}
+
+.horizental,
+.vertical {
+  background: white;
+  width: 3px;
+  height: 12px;
+  position: absolute;
+  border-radius: 5px;
+ margin-left: 11px;
+ margin-top: -5px;
+}
+
+.horizental {
+  transform: rotate(90deg);
+}
+
+.plus-minus-btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px black;
+}
+
+.horizental2 {
+  rotate: 90deg;
+  transition: 0.3s ease;
+}
+.vertical2{
+  rotate: 180deg;
+  transition: 0.3s ease;
+}
+  </style>
+</head>
+<body>
+  <div class="all">
+    <img src="./assets/images/background-pattern-desktop.svg" alt="background-image" id=" bkimgpurple">
+
+<div class="maindiv">
+ <H1> <img src="./assets/images/icon-star.svg">  FAQs</H1> 
+ <br>
+ <div class="QandA">
+  <H2>
+  What is Frontend Mentor, and how will it help me?
+ <button class='plus-minus-btn' id='plus-minus-btn'>
+    <div class='horizental ' ></div>
+    <div class= 'vertical' ></div>
+  </button> 
+</H2>
+ <p > Frontend Mentor offers realistic coding challenges to help developers improve their 
+  frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+  all levels and ideal for portfolio building.</p>
+</div>
+<hr>
+ <div class="QandA"><h2> Frontend Mentor free?
+  <button class='plus-minus-btn' id='plus-minus-btn'>
+    <div class='horizental ' ></div>
+    <div class= 'vertical' ></div>
+  </button> 
+ </h2>
+  <p >Frontend Mentor offers both free and premium coding challenges, with the free 
+  option providing access to a range of projects suitable for all skill levels.</p>
+ </div>
+  <hr>
+ <div class="QandA"> 
+  <H2>Can I use Frontend Mentor projects in my portfolio?
+     <button class='plus-minus-btn' id='plus-minus-btn'>
+    <div class='horizental ' id='horizental'></div>
+    <div class= 'vertical' ></div>
+     </button>
+  </H2>
+    <P >Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+     way to showcase your skills to potential employers!</P>
+</div>
+ <hr>
+ <div class="QandA">
+  <h2>can I get help if I'm stuck on a Frontend Mentor challenge?
+    <button class='plus-minus-btn' id='plus-minus-btn'>
+      <div class='horizental ' ></div>
+      <div class= 'vertical' ></div>
+    </button> 
+  </h2> 
+  <P >The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+  channel where you can ask questions and seek support from other community members.</P>
+</div>
+  </div>
+  
+</div>
+</body>
+<script>
+ document.querySelectorAll('.plus-minus-btn').forEach(button => {
+  button.addEventListener('click', function(){
+    // Toggle classes for the clicked button's elements
+    this.querySelector('.vertical').classList.toggle('horizental2');
+    this.querySelector('.horizental').classList.toggle('vertical2');
+
+ const qAndA = this.closest('.QandA');
+        qAndA.querySelector('p').classList.toggle('hidden');
+
+
+  });
+});
+
+
+
+/*const QA = querySelectorAll('.QandA')
+ document.QA.forEach(btn => { 
+  btn.addEventListener('click',Function(){
+        this.querySelectorAll('p').toggle('.hidden')
+  })
+})*/
+
+
+
+ /* document.querySelectorAll('.plus-minus-btn').forEach(button => {
+  button.addEventListener('click', function(){
+    this.querySelector('.vertical').classList.toggle('horizental2');
+    this.querySelector('.horizental').classList.toggle('vertical2');
+
+
+    const isHorizental2 = this.querySelector('.vertical').classList.contains('horizental2');
+    const container = this.closest('.maindiv');
+
+    container.querySelectorAll('p').forEach( paragraph => {
+      if (isHorizental2) {
+       paragraph.classList.add('Qonly');
+    } else {
+      paragraph.classList.remove('Qonly');
+    }
+ });
+    })
+
+    
+});*/
+
+  /*let btn = document.querySelector('.plus-minus-btn');
+ 
+ btn.addEventListener('click', function(){
+   document.querySelector('.vertical').classList.toggle('horizental2')
+   document.querySelector('.horizental').classList.toggle('vertical2')
+
+ });*/
+
+
+</script>
+</html>
